@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chatbox" id="chatbox">
+        <p id="chat1"> </p>
+    </div>
+    <div class="sender">
+    
+        <form id="aa"  target="dl" action="https://script.google.com/macros/s/AKfycbwQleviK4p-lP_M1a8Kfd-KK1N1soBTYMIS8RRHEUnbcfkT6sGhuNL0CpNJS-a1e7HK/exec" method="post">
+        <input id="maininput"  placeholder="Type a message... " name="textmess" >
+        <input id="myinput" type="hidden" name="namm">
+        <input id="mainsend" type="submit" onclick="ch()" value="SEND"> </br>
+        </form>
+        <iframe name="dl" style="display:none;"></iframe>
+
+    </div>
+        <button id="mainsend2" onclick="setnames()">Set Name</button>   
+
+<script>
+    
+    let b = " : "
+    let a = "Anomous" ;
+    let z = localStorage.getItem('usernamesA');
+    if (z !==null) { a = z;} ;
+    document.getElementById("myinput").value = a 
+    function setnames(){
+        let takeusee= prompt("Your Name Please !");
+        localStorage.setItem("usernamesA", takeusee);
+        a = takeusee
+        document.getElementById("myinput").value=a
+        //location.reload()
+    }
+   function reloading(){
+    fetch("https://script.google.com/macros/s/AKfycbx_SQxIoy8wVX1CL935bZAprTLF1erj_tlSh5FTweZcPZWMjbBbFXhSs8MNMtllx5Yh/exec")
+    .then(res => res.json())
+    .then(data =>{
+        chatbox.innerHTML="";
+        for(let i = 0; i<data.length; i++){
+            let U = data[i];
+            let N = U["Names"]
+            let T = U["Messages "]
+            
+            // let T = data[i]["Names"];
+            // let U = data[i]["Messages "];
+        
+         
+        //  let g = data.split("\n").map(r =>r.split(","));
+        //  console.log(g);
+
+        //  for(let i=1; i<g.length ;i++){
+        //     let N = g[i] ;
+        //     let m = N.map(r=>r.split(","))
+        //     let T = m[1]
+        //     console.log(T)
+
+            let msgDiv = document.createElement("div");
+            msgDiv.classList.add("message1");
+            msgDiv.innerHTML=N+": "+T ;
+
+        chatbox.appendChild(msgDiv);
+       // document.getElementById("maininput").value="" ;//remove the message on input tab  
+        }
+        chatbox.scrollTop= chatbox.scrollHeight;           
+    }
+    )
+    .catch(error => console.log(error));
+} setInterval(reloading, 2000);
+
+function ch(){ 
+        // let message = document.getElementById("maininput").value;console.log(message)
+        // let chatbox = document.getElementById("chatbox"); console.log(chatbox)
+        
+        // let msgDiv = document.createElement("div");
+        //     msgDiv.classList.add("message1");
+        //     msgDiv.innerHTML=a+" "+b+message ;
+
+        // chatbox.appendChild(msgDiv);
+        // document.getElementById("maininput").value="" ;//remove the message on input tab 
+        // chatbox.scrollTo= chatbox.scrollHeight;
+        
+    }
+</script>
+<script>
+document.getElementById("aa").addEventListener("submit", function(e) {
+    e.preventDefault();     // Stop redirect
+    this.submit();         // Send form normally
+    document.getElementById("maininput").value = "";  // clear input
+});
+</script>
+</body>
+</html>
+<script>    
+            // window.onload = function(){
+            // document.getElementById("aa").addEventListener("submit",function(event){
+            //     event.preventDefault();
+
+            //     fetch(this.action,{
+            //         method: this.method,
+            //         body: new FormData(this)
+            //     })
+            // })}
+        </script>

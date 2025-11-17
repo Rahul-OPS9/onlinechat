@@ -1,0 +1,45 @@
+.chatbox{
+    background-color: beige;
+    height: 85vh;
+    width: 95vw;
+    border: 5px solid red;
+    overflow-y: auto;
+}
+.message1{
+    font-size: 20px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 12px;
+    width: max-content;
+    max-width: 70%;
+    border: 2px solid rgba(0, 0, 0, 0.404);
+    word-wrap: break-word;
+    
+}
+.sender{
+    background-color: blueviolet;
+    margin-top: 5px;
+    padding: 3px;
+    width: 95vw;
+    height: 10vh,max-content;
+}
+#maininput{
+    width:70vw;
+    height: 35px;
+    
+}
+#mainsend{
+    width: 22vw;
+    height: 40px;
+    position:fixed;
+    font-weight: bolder;
+    font-size: 18px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 7px;
+}
+#mainsend2{
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
